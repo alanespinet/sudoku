@@ -124,7 +124,7 @@
 
     if(countRows === 18 && countCols === 18 && countRanges === 18) {
       alert('FELICIDADES!!! Ha Ganado!!!!');
-      $table.addClass('win');
+      $('td').addClass('win');
     }
   }
 
@@ -134,7 +134,7 @@
         2- correct */
 
     for(var i = 0; i < 9; i++) {
-      if(array[row][i] === '')
+      if(array[row][i] === '' || array[row][i].length != 1)
         return 0;
 
       if(countValueInRow(array, row, array[row][i]) > 1)
@@ -149,7 +149,7 @@
         2- correct */
 
     for(var i = 0; i < 9; i++) {
-        if(array[i][col] === '')
+        if(array[i][col] === '' || array[i][col].length != 1)
           return 0;
 
         if(countValueInColumn(array, col, array[i][col]) > 1)
@@ -165,7 +165,7 @@
         2- correct */
     var linear = convertRangeIntoLinear(arr, minrow, maxrow, mincol, maxcol);
     for(var i = 0; i < 9; i++){
-      if(linear[i] === '')
+      if(linear[i] === '' || array[i].length != 1)
         return 0;
 
       if(countValueInArray(linear, linear[i]) > 1)
